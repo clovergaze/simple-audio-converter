@@ -4,10 +4,6 @@
   "description": "Converts all .WAV files in a folder and its subfolders to .MP3 files.",
   "author": "Johannes Hillert <johannes.hillert@infokin.org>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/clovergaze/simple-audio-converter.git"
-  },
   "main": "index.js",
   "scripts": {
     "grunt": "grunt"
