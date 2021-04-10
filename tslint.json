@@ -3,6 +3,10 @@
   "rules": {
     "no-console": false,
     "ordered-imports": false,
+    "quotemark": [
+      true,
+      "single"
+    ],
     "trailing-comma": [
       true,
       {

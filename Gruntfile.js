@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
 module.exports = function (grunt) {
     grunt.initConfig({
         tslint: {
             options: {
-                configuration: "tslint.json"
+                configuration: 'tslint.json'
             },
-            default: ["index.ts"]
+            default: ['index.ts']
         },
         ts: {
             default: {
@@ -21,40 +21,40 @@ module.exports = function (grunt) {
         clean: {
             default: {
                 src: [
-                    ".tscache",
-                    "node_modules",
-                    "index.js",
-                    "index.js.map"
+                    '.tscache',
+                    'node_modules',
+                    'index.js',
+                    'index.js.map'
                 ]
             }
         },
         watch: {
             start: {
                 files: [],
-                tasks: ["build"],
+                tasks: ['build'],
                 options: {
                     atBegin: true
                 }
             },
             config: {
-                files: ["Gruntfile.js"],
+                files: ['Gruntfile.js'],
                 options: {
                     reload: true
                 }
             },
             default: {
-                files: ["index.ts", "tsconfig.json", "tslint.json"],
-                tasks: ["build"]
+                files: ['index.ts', 'tsconfig.json', 'tslint.json'],
+                tasks: ['build']
             }
         }
     });
 
-    grunt.loadNpmTasks("grunt-ts");
-    grunt.loadNpmTasks("grunt-tslint");
-    grunt.loadNpmTasks("grunt-contrib-clean");
-    grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks('grunt-ts');
+    grunt.loadNpmTasks('grunt-tslint');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask("build", ["tslint", "ts"]);
+    grunt.registerTask('build', ['tslint', 'ts']);
 
-    grunt.registerTask("default", ["build"]);
+    grunt.registerTask('default', ['build']);
 };
