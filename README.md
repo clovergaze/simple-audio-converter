@@ -29,7 +29,7 @@ reside.
 For example:
 
 ~~~bash
-node index my-wav-files
+node index <folder name>
 ~~~
 
 This will first download a version of [ffmpeg](https://ffmpeg.org/) that is compatible with the operating system using
