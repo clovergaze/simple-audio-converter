@@ -8,29 +8,29 @@ This program uses [Node.js](https://nodejs.org/), it must be installed on your s
 
 First, install the dependencies with:
 
-~~~bash
+```bash
 npm install
-~~~
+```
 
 This will install all packages necessary to build and run the application.
 
 You can now build the program with:
 
-~~~bash
+```bash
 npm run grunt
-~~~
+```
 
 This will start the default [Grunt](https://gruntjs.com/) task. It is configured to build the application by first
 linting it and then transpiling its TypeScript files to JavaScript.
 
-You can now run the audio converter by executing the *index* file and pass it a path to a folder where the .WAV files
+You can now run the audio converter by executing the `index.js` file and pass it a path to a folder where the .WAV files
 reside.
 
 For example:
 
-~~~bash
+```bash
 node index <folder name>
-~~~
+```
 
 This will first download a version of [ffmpeg](https://ffmpeg.org/) that is compatible with the operating system using
 the [ffbinaries](https://www.npmjs.com/package/ffbinaries) package if ffmpeg was not found inside the audio converter's
@@ -39,23 +39,23 @@ that is placed next to the .WAV file.
 
 To install only the dependencies necessary to run the audio converter, without any packages used for development, run:
 
-~~~bash
+```bash
 npm install --production
-~~~
+```
 
 ## Development
 
-You can use a preconfigured Grunt *watch* task for development purposes by running:
+You can use a preconfigured Grunt `watch` task for development purposes by running:
 
-~~~bash
+```bash
 npm run grunt watch
-~~~
+```
 
 You can clean up any created files and folders by running:
 
-~~~bash
+```bash
 npm run grunt clean
-~~~
+```
 
 ## Bugs & Issues
 
