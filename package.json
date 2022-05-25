@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.11.9",
-    "grunt": "^1.4.1",
+    "grunt": "^1.5.3",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-ts": "^6.0.0-beta.22",
