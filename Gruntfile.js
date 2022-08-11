@@ -18,6 +18,15 @@ module.exports = function (grunt) {
         tsconfig: true
       }
     },
+    uglify: {
+      default: {
+        files: {
+          "bin/convert.js": [
+            "src/**/*.js"
+          ]
+        }
+      }
+    },
     clean: {
       default: {
         src: [
@@ -54,9 +63,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-ts");
   grunt.loadNpmTasks("grunt-tslint");
   grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks("grunt-contrib-watch");
 
-  grunt.registerTask("build", ["tslint", "ts"]);
+  grunt.registerTask("build", ["tslint", "ts", "uglify"]);
 
   grunt.registerTask("default", ["build"]);
 };
