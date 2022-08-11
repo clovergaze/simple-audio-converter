@@ -3,10 +3,12 @@
 module.exports = function (grunt) {
   grunt.initConfig({
     tslint: {
+      files: [
+        "src/**/*.ts"
+      ],
       options: {
         configuration: "tslint.json"
-      },
-      default: ["index.ts"]
+      }
     },
     ts: {
       default: {
@@ -20,26 +22,30 @@ module.exports = function (grunt) {
       default: {
         src: [
           ".tscache",
-          "index.js",
-          "index.js.map"
+          "src/*.js",
+          "src/*.js.map"
         ]
       }
     },
     watch: {
       start: {
-        tasks: ["build"],
+        files: [
+          "src/**/*.ts"
+        ],
         options: {
           atBegin: true
-        }
+        },
+        tasks: ["build"]
       },
       config: {
-        files: ["Gruntfile.js"],
+        files: [
+          "Gruntfile.js",
+          "tsconfig.json",
+          "tslint.json"
+        ],
         options: {
           reload: true
-        }
-      },
-      default: {
-        files: ["index.ts", "tsconfig.json", "tslint.json"],
+        },
         tasks: ["build"]
       }
     }
