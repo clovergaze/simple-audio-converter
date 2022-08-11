@@ -23,13 +23,13 @@ npm run grunt
 This will start the default [Grunt](https://gruntjs.com/) task. It is configured to build the application by first
 linting it and then transpiling its TypeScript files to JavaScript.
 
-You can now run the audio converter by executing the `index.js` file and pass it a path to a folder where the .WAV files
-reside.
+You can now run the audio converter by executing the `bin/convert.js` file and pass it a path to a folder where the .WAV
+files reside.
 
 For example:
 
 ```bash
-node index <folder name>
+node bin/convert <folder name>
 ```
 
 This will first download a version of [ffmpeg](https://ffmpeg.org/) that is compatible with the operating system using
