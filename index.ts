@@ -9,8 +9,8 @@ import * as async from "async";
  */
 
 if (process.argv.length < 3) {
-    console.log("Usage: node index <folder name>");
-    process.exit();
+  console.log("Usage: node index <folder name>");
+  process.exit();
 }
 
 const inputFolder = process.argv[2];
@@ -22,46 +22,46 @@ const inputFolder = process.argv[2];
 let wavFiles = [];
 
 async.series([
-    (callback) => {
+  (callback) => {
 
-        /*
-         * Make sure ffmpeg is available
-         */
+    /*
+     * Make sure ffmpeg is available
+     */
 
-        glob("./ffmpeg/ffmpeg*", (error, file) => {
-            if (file.length === 0) {
-                console.log("Downloading ffmpeg binaries..");
+    glob("./ffmpeg/ffmpeg*", (error, file) => {
+      if (file.length === 0) {
+        console.log("Downloading ffmpeg binaries..");
 
-                ffbinaries.downloadFiles("ffmpeg", {destination: "./ffmpeg"}, () => {
-                    console.log("Download complete..");
-                    callback();
-                });
-            } else {
-                callback();
-            }
+        ffbinaries.downloadFiles("ffmpeg", {destination: "./ffmpeg"}, () => {
+          console.log("Download complete..");
+          callback();
         });
-    },
-    (callback) => {
+      } else {
+        callback();
+      }
+    });
+  },
+  (callback) => {
 
-        /*
-         * Collect .WAV files from folder and subfolders
-         */
+    /*
+     * Collect .WAV files from folder and subfolders
+     */
 
-        glob(path.join(inputFolder, "**/*.wav"), (error, files) => {
-            wavFiles = files;
-            callback();
-        });
-    },
-    () => {
+    glob(path.join(inputFolder, "**/*.wav"), (error, files) => {
+      wavFiles = files;
+      callback();
+    });
+  },
+  () => {
 
-        /*
-         * Convert collected files
-         */
+    /*
+     * Convert collected files
+     */
 
-        async.eachSeries(wavFiles, convertFiles, () => {
-            console.log("Conversion complete..");
-        });
-    }
+    async.eachSeries(wavFiles, convertFiles, () => {
+      console.log("Conversion complete..");
+    });
+  }
 ]);
 
 /**
@@ -71,12 +71,12 @@ async.series([
  * @param next Callback method after conversion is done
  */
 const convertFiles = (filename, next) => {
-    const command = ffmpeg();
-    command.setFfmpegPath("./ffmpeg/ffmpeg");
+  const command = ffmpeg();
+  command.setFfmpegPath("./ffmpeg/ffmpeg");
 
-    const outputFilename = path.join(path.dirname(filename), path.parse(filename).name + ".mp3");
+  const outputFilename = path.join(path.dirname(filename), path.parse(filename).name + ".mp3");
 
-    command.input(filename).output(outputFilename).on("end", () => {
-        next();
-    }).run();
+  command.input(filename).output(outputFilename).on("end", () => {
+    next();
+  }).run();
 };
